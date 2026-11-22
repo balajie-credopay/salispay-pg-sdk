@@ -10,7 +10,40 @@ You can install the package via Composer. Run the following command:
 
 composer require salisPay/paymentgateway
 
-```v
+```
+
+## Sample Integration Setup
+
+After installing the package using Composer, create a PHP file named UsageExample.php in your project root directory.
+
+Your project structure should look like this:
+
+```graphql
+
+your-project/
+├── vendor/
+│   ├── autoload.php
+│   └── salisPay/
+│       └── paymentgateway/
+├── composer.json
+├── composer.lock
+└── UsageExample.phps
+
+```php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use SalisPay\SalisPayPaymentGateway;
+
+```
+You can now use the SDK to initialize the payment gateway, create orders, and check order statuses.
+
+To execute your integration example, run:
+
+php UsageExample.php
+
+```
+
 
 ## Features
 
