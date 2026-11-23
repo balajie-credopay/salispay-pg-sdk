@@ -27,14 +27,16 @@ your-project/
 │       └── paymentgateway/
 ├── composer.json
 ├── composer.lock
-└── UsageExample.phps
+└── UsageExample.php
+
+Include the Composer autoloader and required SDK classes:
 
 ```php
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 use SalisPay\SalisPayPaymentGateway;
-
+use SalisPay\Resources\OrderAPI;
 ```
 You can now use the SDK to initialize the payment gateway, create orders, and check order statuses.
 
@@ -69,6 +71,7 @@ php UsageExample.php
 require_once __DIR__ . '/vendor/autoload.php';
 
 use SalisPay\SalisPayPaymentGateway;
+use SalisPay\Resources\OrderAPI;
 
 // Initialize the payment gateway
 $clientId = 'your-client-id';
@@ -100,7 +103,10 @@ $orderData = [
 
 try {
     $orderResponse = $orderAPI->createOrder($orderData);
-    echo "Order Response: " . $orderResponse;
+     echo '<h3>Order Response</h3>';
+    echo '<pre>';
+    print_r($orderResponse);
+    echo '</pre>';
 
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage();
@@ -115,8 +121,11 @@ try {
 try {
     $orderId = 'your-order-id'; // Replace with an actual order ID
     $statusResponse = $orderAPI->checkStatus($orderId);
-    echo "Order Status: " . $statusResponse;
-} catch (Exception $e) {
+ echo '<h3>Order Status</h3>';
+    echo '<pre>';
+    print_r($statusResponse);
+    echo '</pre>';
+    } catch (Exception $e) {
      echo "Error: " . $e->getMessage();
 }
 
